@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:15
+    container_name: postgres_mavidev
+    environment:
+      POSTGRES_DB: mavidev_db
+      POSTGRES_USER: mavidev
+      POSTGRES_PASSWORD: mavidev
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  spring_app:
+    image: mavidev_app_container
+    container_name: mavidev_app_container
+    depends_on:
+      - postgres
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/mavidev_db
+      SPRING_DATASOURCE_USERNAME: mavidev
+      SPRING_DATASOURCE_PASSWORD: mavidev
+    ports:
+      - "8080:8080"
+
+volumes:
+  postgres_data:
