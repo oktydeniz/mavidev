@@ -38,6 +38,7 @@ class CityDistrictRestController extends ApplicationController {
                 true);
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
+
     @GetMapping("/{cityId}/districts")
     public ResponseEntity<APIResponse<List<DistrictResponse>>> getDistricts(@PathVariable Long cityId) {
         List<DistrictResponse> districts = districtService.getDistrictByCityId(cityId);

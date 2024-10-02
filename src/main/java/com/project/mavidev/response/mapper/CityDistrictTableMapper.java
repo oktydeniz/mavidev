@@ -21,7 +21,9 @@ public class CityDistrictTableMapper implements Function<CityDistrictTable, City
     public CityDistrictTableResponse apply(CityDistrictTable cityDistrictTable) {
         return new CityDistrictTableResponse(
                 cityMapper.apply(cityDistrictTable.getCity()),
-                districtMapper.apply(cityDistrictTable.getDistrict())
+                districtMapper.apply(cityDistrictTable.getDistrict()),
+                cityDistrictTable.getId(),
+                cityDistrictTable.getCreatedAt()
         );
     }
 }
