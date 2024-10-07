@@ -23,7 +23,15 @@ public class CityDistrictTableMapper implements Function<CityDistrictTable, City
                 cityMapper.apply(cityDistrictTable.getCity()),
                 districtMapper.apply(cityDistrictTable.getDistrict()),
                 cityDistrictTable.getId(),
-                cityDistrictTable.getCreatedAt()
+                cityDistrictTable.getCreatedAt(),
+                getUppercase(cityDistrictTable.getArea()),
+                cityDistrictTable.getPopulation()
         );
+    }
+    private String getUppercase(String d) {
+        if (d != null && !d.isEmpty()){
+            return d.toUpperCase();
+        }
+        return d;
     }
 }

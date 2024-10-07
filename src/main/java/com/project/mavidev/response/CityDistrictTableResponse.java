@@ -6,5 +6,7 @@ public record CityDistrictTableResponse(
         CityResponse city,
         DistrictResponse district,
         Long id,
-        Date createdAt
+        Date createdAt,
+        String area,
+        String population
 ) {}

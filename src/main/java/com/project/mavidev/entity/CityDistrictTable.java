@@ -1,9 +1,6 @@
 package com.project.mavidev.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -20,4 +17,10 @@ public class CityDistrictTable extends BaseEntity{
     @ManyToOne
     @JoinColumn(name = "district_id")
     private District district;
+
+    @Column
+    private String population;
+
+    @Column
+    private String area;
 }

@@ -38,4 +38,14 @@ public class GlobalExceptionHandler {
         );
         return new ResponseEntity<>(response, HttpStatus.NOT_FOUND);
     }
+
+    @ExceptionHandler(SizeException.class)
+    public ResponseEntity<APIResponse<String>> handleMatchWithCityException(SizeException ex) {
+        APIResponse<String> response = new APIResponse<>(
+                ex.getMessage(),
+                null,
+                false
+        );
+        return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
+    }
 }
